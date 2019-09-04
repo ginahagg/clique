@@ -115,7 +115,7 @@ io_request({put_chars, M, F, A}, State) ->
         Chars ->
             io_request({put_chars, Chars}, State)
     catch C:T ->
-            {{error, {C,T, erlang:get_stacktrace()}}, State}
+            {{error, {C,T, erlang:get_log()}}, State}
     end;
 io_request({put_chars, _Enc, Chars}, State) ->
     io_request({put_chars, Chars}, State);
